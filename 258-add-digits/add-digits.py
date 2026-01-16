@@ -1,14 +1,13 @@
 class Solution(object):
     def addDigits(self, num):
-        list_1 = []
-
-        if num != 0:
+        if len(str(num)) != 1:
             while len(str(num)) != 1:
-                for i in str(num):
-                    list_1.append(int(i))
-                num = sum(list_1)
-                list_1[:] = []
+                a = int(num / 10)
+                b = num - (int(num / 10) * 10)
+                num = a + b
 
+            return num
+        elif len(str(num)) == 1:
             return num
         else:
             return 0
