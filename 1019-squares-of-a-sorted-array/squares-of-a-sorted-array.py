@@ -1,8 +1,5 @@
 class Solution(object):
     def sortedSquares(self, nums):
-        list_1 = []
-        for i in nums:
-            list_1.append(i ** 2)
-        
+        list_1 = [i * i for i in nums]
         return sorted(list_1)
         
