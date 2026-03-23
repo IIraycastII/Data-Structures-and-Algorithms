@@ -5,10 +5,12 @@ class Solution(object):
 
         while left < right:
             sum_1 = numbers[left] + numbers[right]
-            if sum_1 == target:
-                return [left + 1, right + 1]
-            elif sum_1 > target:
+
+            if sum_1 > target:
                 right -= 1
             elif sum_1 < target:
                 left += 1
-        return 0
+            elif sum_1 == target:
+                return [left + 1, right + 1]
+                break
+        return -1
