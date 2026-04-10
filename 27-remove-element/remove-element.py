@@ -1,17 +1,15 @@
 class Solution(object):
     def removeElement(self, nums, val):
-        n = 0
+        a = 0
 
-        while True:
-            try:
-                if nums[n] == val:
-                    nums.remove(nums[n])
-                    n -= 1
-                n += 1
-            except IndexError:
-                pass
+        if len(nums) >= 1:    
+            while True:
+                if nums[a] == val:
+                    nums.remove(nums[a])
+                elif nums[a] != val:
+                    a += 1
+                if a == len(nums):
+                    break
 
-            if n == len(nums):
-                break
-
-        print(nums)
+            return len(nums)
+        return 0
