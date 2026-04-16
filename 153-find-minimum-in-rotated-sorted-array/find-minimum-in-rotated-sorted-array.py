@@ -1,7 +1,7 @@
 class Solution(object):
     def findMin(self, nums):
         nums.sort()
-
+        
         left = 0
         right = len(nums) - 1
 
