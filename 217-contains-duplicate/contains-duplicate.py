@@ -1,6 +1,14 @@
 class Solution(object):
     def containsDuplicate(self, nums):
-        if len(list(set(nums))) == len(nums):
-            return False
-        else:
-            return True
+        nums.sort()
+        dup = False
+
+        for i in range(0, len(nums) - 1):
+            if nums[i] == nums[i + 1]:
+                dup = True
+                break
+            elif nums[i] != nums[i + 1]:
+                dup = False
+        
+        return dup
+            
