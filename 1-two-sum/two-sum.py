@@ -1,20 +1,20 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        list_elements = []
-        list_index = []
+        nums_2 = sorted(nums)
+        left = 0
+        right = len(nums) - 1
 
-        # Collect all pairs of indices (i, k) where i != k
-        for i in range(0, len(nums)):
-            for k in range(i + 1, len(nums)):
-                if nums[i] + nums[k] == target:
-                    list_index.append([i, k])
+        while left <= right:
+            sum_nums = nums_2[left] + nums_2[right]
 
-        # Only print the first found solution
-        if list_index:
-            return list_index[0]
-        else:
-            return "No solution found."
-
-        return nums
-        return list_index
-
+            if sum_nums == target:
+                first = nums.index(nums_2[left])
+                if nums_2[left] == nums_2[right]:
+                    second = nums.index(nums_2[right], first + 1)
+                else:
+                    second = nums.index(nums_2[right])
+                return [first, second]
+            elif sum_nums > target:
+                right -= 1
+            elif sum_nums < target:
+                left += 1
